@@ -3,11 +3,19 @@ const version = 'v6';
 function CustomCheckBoxes(b){
       let box = document.getElementById(b);
       let status = box.getAttribute('data-status');
+      let cCount = 0;
+      let unCount = 0;
       if(status == 'checked'){
           box.setAttribute('data-status', "not-checked");
       }else{
           box.setAttribute('data-status', "checked");
       }
+
+      document.querySelectorAll('.custom-resource-select').forEach(sel => {
+            cCount ++;
+      })
+
+      document.getElementById('amount-selected').textContent = cCount + 'resource(s) selected';
   }
 
   document.querySelectorAll('.cta-button').forEach(btn => btn.addEventListener('click', ()=>{
@@ -16,19 +24,6 @@ function CustomCheckBoxes(b){
     }
 
   }))
-
-  function SetBrand(){
-
-    let inputs = document.querySelectorAll('.hs-input');
-    let labels = document.querySelectorAll('.hbspt-form label');
-    inputs.forEach(inp => {
-        inp.style = "font-family: 'GT-Eesti-Pro-Display-Bold', sans-serif !important;font-weight: normal !important;";
-    })
-    labels.forEach(lbl => {
-        lbl.style = "font-family: 'GT-Eesti-Pro-Display-Bold', sans-serif;font-weight: bolder;";
-    })
-
-}
 
   function ResetPages(){
       document.getElementById('pages-scroll').style = '';
