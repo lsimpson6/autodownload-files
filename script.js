@@ -31,9 +31,7 @@ function CustomCheckBoxes(b){
 }
 
   function ResetPages(){
-    document.getElementById('page-1').style = '';
-    document.getElementById('page-2').style = '';
-    document.getElementById('page-3').style = '';
+    document.getElementById('pages-scroll').style = '';
   }
 
   var selectedResources = [];
