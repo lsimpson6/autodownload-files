@@ -117,7 +117,7 @@ function ScrollElementToTop(elementId){
       let element = document.getElementById(elementId);
       let stopHeight = document.querySelector('.modal-header').getBoundingClientRect().bottom;
       
-      while(element.getBoundingClientRect().top < stopHeight){
+      while(element.getBoundingClientRect().top > stopHeight){
           container.style = 'transform: translateY(' + ty + 'px);';
           ty --;
       }
