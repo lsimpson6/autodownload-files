@@ -110,16 +110,23 @@ function confirmationPage(){
 
 var ty = 0;
 
-function ScrollElementToTop(elementId){
-      let container = document.getElementById('pages-scroll');
-      let element = document.getElementById(elementId);
-      let stopHeight = document.querySelector('.modal-header').getBoundingClientRect().bottom;
-      
-      while(element.getBoundingClientRect().top > stopHeight){
-          container.style = 'transform: translateY(' + ty + 'px);';
-          ty --;
-      }
 
-      element.style = 'opacity: 1 !important;';
+  function ScrollElementToTop(elementId){
+        let pages = ['page-1','page-2','page-3'];
+        let container = document.getElementById('pages-scroll');
+        let element = document.getElementById(elementId);
+        let stopHeight = document.querySelector('.modal-header').getBoundingClientRect().bottom;
+        
+        while(element.getBoundingClientRect().top > stopHeight){
+            container.style = 'transform: translateY(' + ty + 'px);';
+            ty --;
+        }
 
-}
+        element.style = 'opacity: 1 !important;';
+
+        pages.forEach(page =>{
+            if(page != elementId){
+                document.getElementById(page).style = 'opacity: 0 !important;';
+            }
+        })
+  }
