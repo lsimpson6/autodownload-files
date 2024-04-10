@@ -12,10 +12,12 @@ function CustomCheckBoxes(b){
       }
 
       document.querySelectorAll('.custom-resource-select').forEach(sel => {
-            cCount ++;
+            if(sel.getAttribute('data-status') == 'checked'){
+                  cCount ++;
+            }
       })
 
-      document.getElementById('amount-selected').textContent = cCount + 'resource(s) selected';
+      document.getElementById('amount-selected').textContent = cCount + ' resource(s) selected';
   }
 
   document.querySelectorAll('.cta-button').forEach(btn => btn.addEventListener('click', ()=>{
