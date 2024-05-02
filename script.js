@@ -1,4 +1,4 @@
-const version = 'v7.01';
+const version = 'v7.12';
 
 function CustomCheckBoxes(b){
       let box = document.getElementById(b);
@@ -44,7 +44,7 @@ document.getElementById('toPageTwo').addEventListener('click', (e)=>{
               checkBoxesChecked ++;
         console.log('checked');
               selectedResources.push(s.getAttribute('id'));
-        selectedResources.push(s.getAttribute('data-name'));
+              resNames.push(s.getAttribute('data-name'));
           }
       })
 
