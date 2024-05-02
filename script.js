@@ -1,4 +1,4 @@
-const version = 'v6';
+const version = 'v7.01';
 
 function CustomCheckBoxes(b){
       let box = document.getElementById(b);
@@ -34,7 +34,7 @@ function CustomCheckBoxes(b){
         document.getElementById('page-3').style = 'opacity: 0;';
   }
 
-  var selectedResources = [];
+var selectedResources = [];
 var resNames = [];
 document.getElementById('toPageTwo').addEventListener('click', (e)=>{
     var checkBoxesChecked = 0;
@@ -78,16 +78,19 @@ document.getElementById('toPageTwo').addEventListener('click', (e)=>{
   }
 
   function downloadSelectedResources(){
-      selectedResources.forEach(resource => {
-    try {
+    selectedResources.forEach(resource => {
+      console.log('.res' + resource);
+      try {
+
               document.querySelector('.res-' + resource).click();
-            document.querySelector('.res-' + resource).remove();
-      }catch(e){
-        console.log(e);
-      }
-      })
+              document.querySelector('.res-' + resource).remove();
+        }catch(e){
+          console.log(e);
+        }
+    })
+
     document.cookie = 'resourceFormSubmitted' + version + '=true; domain=bethany.org; max-age=31536000; path=/;';
-  confirmationPage();
+    confirmationPage();
   }
 
 function confirmationPage(){
