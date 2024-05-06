@@ -1,5 +1,14 @@
-const version = 'v7.21';
+const version = 'v7.22';
 const isMobileDevice = window.innerWidth < 768 ? true : false;
+window.addEventlistener('load', ()=>{
+      if(isMobileDevice){
+              document.querySelectorAll('.cta-button').forEach(btn => btn.addEventListener('click', (e)=>{
+                    if(btn.getAttribute('data-target') == '#resourcesFormModal'){
+                       btn.setAttribute('data-target') == "";
+                      }
+              }))
+      }
+});
 
 function CustomCheckBoxes(b){
       let box = document.getElementById(b);
@@ -21,9 +30,12 @@ function CustomCheckBoxes(b){
       document.getElementById('amount-selected').textContent = cCount + ' resource(s) selected';
   }
 
-  document.querySelectorAll('.cta-button').forEach(btn => btn.addEventListener('click', ()=>{
+  document.querySelectorAll('.cta-button').forEach(btn => btn.addEventListener('click', (e)=>{
     if(isMobileDevice){
-        document.querySelector('.res-' + btn.getAttribute('id')).click();
+          e.preventDefault
+            let sel = '.res' + btn.getAttribute('id');
+        document.querySelector(sel).click();
+          console.log(sel);
     }else {
         if(btn.getAttribute('data-target') == '#resourcesFormModal'){
             ResetPages();
