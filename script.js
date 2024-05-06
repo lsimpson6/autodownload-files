@@ -1,6 +1,6 @@
 const version = 'v7.22';
 const isMobileDevice = window.innerWidth < 768 ? true : false;
-window.addEventlistener('load', ()=>{
+window.addEventListener('load', ()=>{
       if(isMobileDevice){
               document.querySelectorAll('.cta-button').forEach(btn => btn.addEventListener('click', (e)=>{
                     if(btn.getAttribute('data-target') == '#resourcesFormModal'){
