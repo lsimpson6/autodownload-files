@@ -1,4 +1,5 @@
-const version = 'v7.12';
+const version = 'v7.2';
+const isMobile = window.innerWidth < 768 ? true : false;
 
 function CustomCheckBoxes(b){
       let box = document.getElementById(b);
@@ -21,10 +22,13 @@ function CustomCheckBoxes(b){
   }
 
   document.querySelectorAll('.cta-button').forEach(btn => btn.addEventListener('click', ()=>{
-    if(btn.getAttribute('data-target') == '#resourcesFormModal'){
-      ResetPages();
+    if(isMobile){
+        document.querySelector('.res-' + btn.getAttribute('id')).click();
+    }else {
+        if(btn.getAttribute('data-target') == '#resourcesFormModal'){
+            ResetPages();
+          }
     }
-
   }))
 
   function ResetPages(){
