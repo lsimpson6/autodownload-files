@@ -1,5 +1,5 @@
-const version = 'v7.2';
-const isMobile = window.innerWidth < 768 ? true : false;
+const version = 'v7.21';
+const isMobileDevice = window.innerWidth < 768 ? true : false;
 
 function CustomCheckBoxes(b){
       let box = document.getElementById(b);
@@ -22,7 +22,7 @@ function CustomCheckBoxes(b){
   }
 
   document.querySelectorAll('.cta-button').forEach(btn => btn.addEventListener('click', ()=>{
-    if(isMobile){
+    if(isMobileDevice){
         document.querySelector('.res-' + btn.getAttribute('id')).click();
     }else {
         if(btn.getAttribute('data-target') == '#resourcesFormModal'){
